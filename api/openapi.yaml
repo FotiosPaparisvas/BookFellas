@@ -4,7 +4,7 @@ info:
   description: A simple API of Book Fellas web application.
   termsOfService: http://swagger.io/terms/
   contact:
-    name: Bill Aitsidis
+    name: Eleni Sourli 
     email: vaitsidis@ece.auth.gr
   license:
     name: Apache 2.0
