@@ -14,7 +14,7 @@ exports.sendMessage = function(body,sender_id,chat_id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "id" : 86256325632563,
   "sender_id" : 6,
   "content" : "content",
   "timestamp" : "2000-01-23T04:56:07.000+00:00"

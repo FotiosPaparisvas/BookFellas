@@ -114,7 +114,7 @@ exports.bookPOST = function(body) {
   "title" : "title"
 };
     if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
+      resolve(body);
     } else {
       resolve();
     }
@@ -130,7 +130,7 @@ exports.bookPOST = function(body) {
  * pageSize Integer  (optional)
  * no response value expected for this operation
  **/
-exports.bookSearchPOST = function(body,pageNumber,pageSize) {
+exports.bookSearchPOST = function(body) {
   return new Promise(function(resolve, reject) {
     resolve();
   });

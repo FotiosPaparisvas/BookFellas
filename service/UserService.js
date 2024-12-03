@@ -14,11 +14,11 @@ exports.addUserRating = function(body,id) {
     var examples = {};
     examples['application/json'] = {
   "createdAt" : "createdAt",
-  "raterID" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "raterID" : 1478624896,
   "rating" : 1,
   "comment" : "comment",
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
-  "userId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
+  "id" : 8963214,
+  "userId" : 14752593357
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -39,13 +39,12 @@ exports.createUser = function(body) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "normalizedUserName" : "normalizedUserName",
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "id" : "0147525875",
   "userName" : "userName",
   "email" : "email"
 };
     if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
+      resolve(body);
     } else {
       resolve();
     }
@@ -78,10 +77,9 @@ exports.getUserById = function(id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "normalizedUserName" : "normalizedUserName",
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
-  "userName" : "userName",
-  "email" : "email"
+      "id" : "0147525875",
+      "userName" : "userName",
+      "email" : "email"
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -170,13 +168,11 @@ exports.searchUsers = function(name) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
-  "normalizedUserName" : "normalizedUserName",
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "id" : "0147525875",
   "userName" : "userName",
   "email" : "email"
 }, {
-  "normalizedUserName" : "normalizedUserName",
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "id" : "0147525875145",
   "userName" : "userName",
   "email" : "email"
 } ];
@@ -241,15 +237,20 @@ exports.updateUserById = function(body,id) {
  * pageSize Integer  (optional)
  * returns User
  **/
-exports.userGET = function(pageNumber,pageSize) {
+exports.userGET = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
-    examples['application/json'] = {
-  "normalizedUserName" : "normalizedUserName",
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    examples['application/json'] = [{
+  "id" : "0147525875",
   "userName" : "userName",
-  "email" : "email"
-};
+  "email" : "email"},
+  {
+    "id" : "01475258753456789",
+  "userName" : "userName2",
+  "email" : "email2"
+  }
+
+];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
     } else {

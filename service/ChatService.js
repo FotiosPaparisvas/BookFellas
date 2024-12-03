@@ -14,17 +14,17 @@ exports.getChatById = function(id) {
     examples['application/json'] = {
   "createdAt" : "2000-01-23T04:56:07.000+00:00",
   "messages" : [ {
-    "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "id" :1478525896,
     "sender_id" : 6,
     "content" : "content",
     "timestamp" : "2000-01-23T04:56:07.000+00:00"
   }, {
-    "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "id" : 1485625896,
     "sender_id" : 6,
     "content" : "content",
     "timestamp" : "2000-01-23T04:56:07.000+00:00"
   } ],
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "id" : 486525632586,
   "participants" : [ 0, 0 ]
 };
     if (Object.keys(examples).length > 0) {
@@ -48,12 +48,12 @@ exports.getMessagesInChat = function(sender_id,chat_id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "id" : 1489621456,
   "sender_id" : 6,
   "content" : "content",
   "timestamp" : "2000-01-23T04:56:07.000+00:00"
 }, {
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "id" : 148962458985,
   "sender_id" : 6,
   "content" : "content",
   "timestamp" : "2000-01-23T04:56:07.000+00:00"
@@ -80,32 +80,32 @@ exports.listChats = function(sender_id) {
     examples['application/json'] = [ {
   "createdAt" : "2000-01-23T04:56:07.000+00:00",
   "messages" : [ {
-    "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "id" : 1486524589658,
     "sender_id" : 6,
     "content" : "content",
     "timestamp" : "2000-01-23T04:56:07.000+00:00"
   }, {
-    "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "id" : 36987452148,
     "sender_id" : 6,
     "content" : "content",
     "timestamp" : "2000-01-23T04:56:07.000+00:00"
   } ],
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "id" : 148524862145,
   "participants" : [ 0, 0 ]
 }, {
   "createdAt" : "2000-01-23T04:56:07.000+00:00",
   "messages" : [ {
-    "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "id" :145214563256,
     "sender_id" : 6,
     "content" : "content",
     "timestamp" : "2000-01-23T04:56:07.000+00:00"
   }, {
-    "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "id" : 121414244,
     "sender_id" : 6,
     "content" : "content",
     "timestamp" : "2000-01-23T04:56:07.000+00:00"
   } ],
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "id" : 4862458621456,
   "participants" : [ 0, 0 ]
 } ];
     if (Object.keys(examples).length > 0) {
@@ -131,17 +131,17 @@ exports.startChat = function(body,sender_id) {
     examples['application/json'] = {
   "createdAt" : "2000-01-23T04:56:07.000+00:00",
   "messages" : [ {
-    "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "id" : 874125458415,
     "sender_id" : 6,
     "content" : "content",
     "timestamp" : "2000-01-23T04:56:07.000+00:00"
   }, {
-    "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "id" : 478525869352693,
     "sender_id" : 6,
     "content" : "content",
     "timestamp" : "2000-01-23T04:56:07.000+00:00"
   } ],
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "id" : 86256325632563,
   "participants" : [ 0, 0 ]
 };
     if (Object.keys(examples).length > 0) {
@@ -167,17 +167,17 @@ exports.updateChatById = function(body,id) {
     examples['application/json'] = {
   "createdAt" : "2000-01-23T04:56:07.000+00:00",
   "messages" : [ {
-    "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "id" : 86256325632563,
     "sender_id" : 6,
     "content" : "content",
     "timestamp" : "2000-01-23T04:56:07.000+00:00"
   }, {
-    "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+    "id" : 462563256325,
     "sender_id" : 6,
     "content" : "content",
     "timestamp" : "2000-01-23T04:56:07.000+00:00"
   } ],
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "id" : 86256325632563,
   "participants" : [ 0, 0 ]
 };
     if (Object.keys(examples).length > 0) {
@@ -202,7 +202,7 @@ exports.updateMessageInChat = function(body,sender_id,chat_id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "id" : 8525634586325,
   "sender_id" : 6,
   "content" : "content",
   "timestamp" : "2000-01-23T04:56:07.000+00:00"

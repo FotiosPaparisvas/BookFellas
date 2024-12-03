@@ -16,15 +16,15 @@ exports.libraryGET = function(pageNumber,pageSize) {
   "name" : "name",
   "librarian" : "librarian",
   "location" : "location",
-  "id" : "id",
-  "booksCount" : 0
+  "id" : 21,
+  "booksCount" : 2
 }, {
   "established" : "2000-01-23",
   "name" : "name",
   "librarian" : "librarian",
   "location" : "location",
-  "id" : "id",
-  "booksCount" : 0
+  "id" : 21,
+  "booksCount" : 2
 } ];
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -43,7 +43,7 @@ exports.libraryGET = function(pageNumber,pageSize) {
  * pageSize Integer  (optional)
  * returns List
  **/
-exports.libraryIdBookGET = function(id,pageNumber,pageSize) {
+exports.libraryIdBookGET = function(id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
@@ -86,7 +86,7 @@ exports.libraryIdBookPUT = function(body,id) {
   "title" : "title"
 };
     if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
+      resolve(body);
     } else {
       resolve();
     }
@@ -108,8 +108,8 @@ exports.libraryIdGET = function(id) {
   "name" : "name",
   "librarian" : "librarian",
   "location" : "location",
-  "id" : "id",
-  "booksCount" : 0
+  "id" : 21,
+  "booksCount" : 36
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -135,11 +135,11 @@ exports.libraryIdPUT = function(body,id) {
   "name" : "name",
   "librarian" : "librarian",
   "location" : "location",
-  "id" : "id",
-  "booksCount" : 0
+  "id" : 21,
+  "booksCount" : 47
 };
     if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
+      resolve(body);
     } else {
       resolve();
     }
