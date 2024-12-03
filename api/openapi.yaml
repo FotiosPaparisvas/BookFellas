@@ -1553,7 +1553,7 @@ components:
           type: string
         createdAt:
           type: string
-          format: string
+          format: date-time
       example:
         createdAt: createdAt
         raterID: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
