@@ -3,7 +3,7 @@
 var utils = require('../utils/writer.js');
 var Book = require('../service/BookService');
 
-module.exports.bookGET = function bookGET (req, res, next, pageNumber, pageSize) {
+module.exports.bookGET = function bookGET (req, res, next) {
   Book.bookGET(pageNumber, pageSize)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -53,7 +53,7 @@ module.exports.bookPOST = function bookPOST (req, res, next, body) {
     });
 };
 
-module.exports.bookSearchPOST = function bookSearchPOST (req, res, next, body, pageNumber, pageSize) {
+module.exports.bookSearchPOST = function bookSearchPOST (req, res, next, body) {
   Book.bookSearchPOST(body, pageNumber, pageSize)
     .then(function (response) {
       utils.writeJson(res, response);
