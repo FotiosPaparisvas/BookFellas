@@ -4,11 +4,10 @@
 /**
  * Gets all books.
  *
- * pageNumber Integer  (optional)
- * pageSize Integer  (optional)
+
  * returns List
  **/
-exports.bookGET = function(pageNumber,pageSize) {
+exports.bookGET = function() {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
@@ -126,11 +125,12 @@ exports.bookPOST = function(body) {
  * Gets all Books based on the search parameters.
  *
  * body BookSearchParams  (optional)
- * pageNumber Integer  (optional)
- * pageSize Integer  (optional)
+ * Author string  (optional)
+ * title string  (optional)
+ * category string (optional)
  * no response value expected for this operation
  **/
-exports.bookSearchPOST = function(body) {
+exports.bookSearchPOST = function(body, Author, title, category) {
   return new Promise(function(resolve, reject) {
     resolve();
   });
