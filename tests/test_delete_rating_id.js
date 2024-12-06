@@ -6,7 +6,7 @@ import got from 'got';
 const apiBaseUrl = 'https://bookfellas-as9j.onrender.com';
 
 
-test('DELETE /rating/{id}', async t => {
+test('DELETE /rating/{id} Happy path', async t => {
   const ratingId = 188; // Use an actual rating ID that exists
 
   const deleteResponse = await got.delete(`${apiBaseUrl}/rating/${ratingId}` );

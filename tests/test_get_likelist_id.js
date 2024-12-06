@@ -5,9 +5,10 @@ import got from 'got';
 
 const apiBaseUrl = 'https://bookfellas-as9j.onrender.com';
 
-const ratingId = 188;
-test('GET /rating /{id} Happy path', async t => {
-    const getResponse = await got(`${apiBaseUrl}/rating/${ratingId}`);
+const likelistId = 99;
+test('GET /likelist /{id}' , async t => {
+    const getResponse = await got(`${apiBaseUrl}/likelist/${likelistId}`);
 
     t.is(getResponse.statusCode, 200);
-  });
+
+});
