@@ -20,23 +20,6 @@ paths:
       - user
       summary: Gets all Users.
       operationId: userGET
-      parameters:
-      - name: PageNumber
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-      - name: PageSize
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
       responses:
         "200":
           description: Returns the Users correctly.
@@ -115,7 +98,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       requestBody:
         description: Update the details of an existing user
@@ -154,7 +137,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       responses:
         "204":
@@ -181,7 +164,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       requestBody:
         description: Update the password of an existent user
@@ -221,7 +204,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       requestBody:
         description: Update the email of an existent user
@@ -259,7 +242,7 @@ paths:
       - name: username
         in: query
         description: The username for login
-        required: false
+        required: true
         style: form
         explode: true
         schema:
@@ -267,7 +250,7 @@ paths:
       - name: password
         in: query
         description: The password for login in clear text
-        required: false
+        required: true
         style: form
         explode: true
         schema:
@@ -361,23 +344,6 @@ paths:
       - Book
       summary: Gets all books.
       operationId: bookGET
-      parameters:
-      - name: PageNumber
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-      - name: PageSize
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
       responses:
         "200":
           description: Returns the Books correctly
@@ -433,7 +399,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       responses:
         "200":
@@ -461,7 +427,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       requestBody:
         content:
@@ -501,7 +467,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       responses:
         "204":
@@ -520,22 +486,30 @@ paths:
       summary: Gets all Books based on the search parameters.
       operationId: bookSearchPOST
       parameters:
-      - name: PageNumber
+      - name: Author
         in: query
         required: false
         style: form
         explode: true
         schema:
-          type: integer
-          format: int32
-      - name: PageSize
+          type: string
+          format: string
+      - name: title
         in: query
         required: false
         style: form
         explode: true
         schema:
-          type: integer
-          format: int32
+          type: string
+          format: string
+      - name: category
+        in: query
+        required: false
+        style: form
+        explode: true
+        schema:
+          type: string
+          format: string 
       requestBody:
         content:
           application/json:
@@ -552,7 +526,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Book'
         "404":
-          description: games not found
+          description: Books not found
           content:
             text/plain:
               schema:
@@ -570,23 +544,6 @@ paths:
       - Library
       summary: Get a list of libraries
       operationId: libraryGET
-      parameters:
-      - name: PageNumber
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-      - name: PageSize
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
       responses:
         "200":
           description: Returns the libraries correctly
@@ -611,7 +568,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       responses:
         "200":
@@ -640,7 +597,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       requestBody:
         content:
@@ -675,24 +632,8 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
-      - name: PageNumber
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
-      - name: PageSize
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: integer
-          format: int32
       responses:
         "200":
           description: A list of books in the library
@@ -723,7 +664,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       requestBody:
         content:
@@ -766,7 +707,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       responses:
         "200":
@@ -799,7 +740,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       requestBody:
         description: Details of the new chat
@@ -843,7 +784,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       - name: chat_id
         in: path
@@ -852,7 +793,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       requestBody:
         description: Details of the message to be sent
@@ -896,7 +837,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
       responses:
         "200":
           description: Successful operation
@@ -925,7 +866,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
       requestBody:
         description: Updated chat details
         content:
@@ -969,7 +910,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
       - name: chat_id
         in: path
         description: ID of the chat
@@ -977,7 +918,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
       responses:
         "200":
           description: Successful operation
@@ -1010,7 +951,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
       - name: chat_id
         in: path
         description: ID of the chat
@@ -1018,7 +959,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
       requestBody:
         description: Updated message details
         content:
@@ -1055,7 +996,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       responses:
         "200":
@@ -1088,7 +1029,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       requestBody:
         description: Rating details
@@ -1132,7 +1073,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       responses:
         "200":
@@ -1162,7 +1103,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       requestBody:
         description: Update the details of an existing rating
@@ -1205,7 +1146,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       responses:
         "204":
@@ -1232,7 +1173,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       responses:
         "200":
@@ -1262,7 +1203,7 @@ paths:
         style: simple
         explode: false
         schema:
-          type: string
+          type: integer
           format: uuid
       requestBody:
         description: Update the like list of an existing user
@@ -1301,17 +1242,14 @@ components:
       type: object
       properties:
         id:
-          type: string
+          type: integer
           format: uuid
         userName:
-          type: string
-        normalizedUserName:
           type: string
         email:
           type: string
       example:
-        normalizedUserName: normalizedUserName
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 0147525875
         userName: userName
         email: email
     CreateUser:
@@ -1387,10 +1325,13 @@ components:
     BookSearchParams:
       type: object
       properties:
+        author:
+          type: string
+          nullable: true
         title:
           type: string
           nullable: true
-        sortOrder:
+        category:
           type: string
           nullable: true
       additionalProperties: false
@@ -1421,7 +1362,7 @@ components:
       type: object
       properties:
         id:
-          type: string
+          type: integer
           description: The unique identifier for the library
         name:
           type: string
@@ -1444,8 +1385,8 @@ components:
         name: name
         librarian: librarian
         location: location
-        id: id
-        booksCount: 0
+        id: 21
+        booksCount: 2
     Chat:
       required:
       - createdAt
@@ -1471,15 +1412,15 @@ components:
       example:
         createdAt: 2000-01-23T04:56:07.000+00:00
         messages:
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - id: 25874
           sender_id: 6
           content: content
           timestamp: 2000-01-23T04:56:07.000+00:00
-        - id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        - id: 96325741
           sender_id: 6
           content: content
           timestamp: 2000-01-23T04:56:07.000+00:00
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 47896281
         participants:
         - 0
         - 0
@@ -1490,7 +1431,7 @@ components:
       type: object
       properties:
         recipient_id:
-          type: string
+          type: integer
           format: uuid
         initial_message:
           type: string
@@ -1503,7 +1444,7 @@ components:
       type: object
       properties:
         id:
-          type: string
+          type: integer
           format: uuid
         sender_id:
           type: integer
@@ -1514,7 +1455,7 @@ components:
           type: string
           format: date-time
       example:
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 148624896324896
         sender_id: 6
         content: content
         timestamp: 2000-01-23T04:56:07.000+00:00
@@ -1536,13 +1477,13 @@ components:
       type: object
       properties:
         id:
-          type: string
+          type: integer
           format: uuid
         userId:
-          type: string
+          type: integer
           format: uuid
         raterID:
-          type: string
+          type: integer
           format: uuid
         rating:
           maximum: 5
@@ -1555,7 +1496,7 @@ components:
           type: string
           format: date-time
       example:
-        createdAt: createdAt
+        createdAt: 2000-01-23T04:56:07.000+00:00
         raterID: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
         rating: 1
         comment: comment
@@ -1575,10 +1516,10 @@ components:
       type: object
       properties:
         id:
-          type: string
+          type: integer
           format: uuid
         userId:
-          type: string
+          type: integer
           format: uuid
         likedBooks:
           type: array
@@ -1596,5 +1537,5 @@ components:
           id: 0
           publishedDate: 2000-01-23
           title: title
-        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
-        userId: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+        id: 14852586
+        userId: 4852586369

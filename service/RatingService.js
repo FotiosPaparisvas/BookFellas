@@ -27,11 +27,11 @@ exports.getRatingById = function(id) {
     var examples = {};
     examples['application/json'] = {
   "createdAt" : "createdAt",
-  "raterID" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "raterID" : 86256325632563,
   "rating" : 1,
   "comment" : "comment",
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
-  "userId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
+  "id" : 8625632563256334,
+  "userId" : 86256325632563852
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
@@ -55,11 +55,11 @@ exports.updateRatingById = function(body,id) {
     var examples = {};
     examples['application/json'] = {
   "createdAt" : "createdAt",
-  "raterID" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
+  "raterID" : 86256325632563,
   "rating" : 1,
   "comment" : "comment",
-  "id" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91",
-  "userId" : "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
+  "id" : 9632547,
+  "userId" : 14786214856
 };
     if (Object.keys(examples).length > 0) {
       resolve(examples[Object.keys(examples)[0]]);
