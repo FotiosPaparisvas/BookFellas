@@ -89,7 +89,7 @@ module.exports.updateEmail = function updateEmail (req, res, next, body, id) {
       utils.writeJson(res, response);
     })
     .catch(function (response) {
-      utils.writeJson(res, response);
+      utils.writeJson(res, response, response.code);
     });
 };
 
