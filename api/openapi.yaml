@@ -1298,7 +1298,7 @@ components:
       - email
       type: object
       properties:
-        password:
+        email:
           type: string
           description: The new email for the user
           format: email

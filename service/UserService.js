@@ -39,9 +39,10 @@ exports.createUser = function(body) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
-  "id" : "0147525875",
-  "userName" : "userName",
-  "email" : "email"
+      "userName" : "userName",
+      "password" : "password",
+      "confirmPassword" : "password",
+      "email" : "email"
 };
     if (Object.keys(examples).length > 0) {
       resolve(body);
@@ -195,9 +196,21 @@ exports.searchUsers = function(name) {
  **/
 exports.updateEmail = function(body,id) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    var examples = {};
+    examples['application/json'] = {
+      "id": 14,
+      "userName": "userName",
+      "email": "email"
+    };
+    
+    const user = Object.values(examples).find(user => user.id === id);
+    if (user) {
+      resolve(user);
+    } else {
+      reject({ code: 404, message: "User not found" });
+    }
   });
-}
+};
 
 
 /**
