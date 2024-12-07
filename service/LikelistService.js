@@ -25,7 +25,7 @@ exports.getLikeListByUserId = function(id) {
     "publishedDate" : "2000-01-23",
     "title" : "title"
   } ],
-  "id" : 86256325632563,
+  "id" : id,
   "userId" : 8625632563256342
 };
     if (Object.keys(examples).length > 0) {

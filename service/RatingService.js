@@ -30,7 +30,7 @@ exports.getRatingById = function(id) {
   "raterID" : 86256325632563,
   "rating" : 1,
   "comment" : "comment",
-  "id" : 8625632563256334,
+  "id" : id,
   "userId" : 86256325632563852
 };
     if (Object.keys(examples).length > 0) {
