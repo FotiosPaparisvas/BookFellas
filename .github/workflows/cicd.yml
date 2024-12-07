@@ -20,6 +20,13 @@ jobs:
       - name: Run tests
         run: npm run test
 
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm start
+          wait-on: 'http://localhost:8080/docs' 
+          run: npm run cypress:run
+
   cd:
     needs: ci
     runs-on: ubuntu-latest
