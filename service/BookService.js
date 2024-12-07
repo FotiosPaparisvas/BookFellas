@@ -39,9 +39,26 @@ exports.bookGET = function() {
  * no response value expected for this operation
  **/
 exports.bookIdDELETE = function(id) {
+
   return new Promise(function(resolve, reject) {
-    resolve();
+    var examples = {};
+    examples['application/json'] = {
+      "author" : "author",
+      "isbn" : "isbn",
+      "id" : 0,
+      "publishedDate" : "2000-01-23",
+      "title" : "title"
+    };
+    const book = Object.values(examples).find(book => book.id === id);
+  
+    if (book) {
+      resolve();
+    } else {
+      reject({ code: 404, message: 'Book not found' });
+    }
+    
   });
+
 }
 
 
@@ -54,6 +71,16 @@ exports.bookIdDELETE = function(id) {
 exports.bookIdGET = function(id) {
   return new Promise(function(resolve, reject) {
     var examples = {};
+    // if (id === undefined || id === null) {
+    //   reject({ code: 400, message: 'ID is required' });
+    //   return;
+    // }
+
+    // if (typeof id !== 'number' || !Number.isInteger(id)) {
+    //   reject({ code: 400, message: 'Invalid ID format' });
+    //   return;
+    // }
+
     examples['application/json'] = {
   "author" : "author",
   "isbn" : "isbn",
@@ -61,10 +88,12 @@ exports.bookIdGET = function(id) {
   "publishedDate" : "2000-01-23",
   "title" : "title"
 };
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
+    const book = Object.values(examples).find(book => book.id === id);
+
+    if (book) {
+      resolve(book);
     } else {
-      resolve();
+      reject({ code: 404, message: 'Book not found' });
     }
   });
 }
