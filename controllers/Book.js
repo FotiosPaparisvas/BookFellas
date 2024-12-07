@@ -4,7 +4,7 @@ var utils = require('../utils/writer.js');
 var Book = require('../service/BookService');
 
 module.exports.bookGET = function bookGET (req, res, next) {
-  Book.bookGET(pageNumber, pageSize)
+  Book.bookGET()
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -18,8 +18,8 @@ module.exports.bookIdDELETE = function bookIdDELETE (req, res, next, id) {
     .then(function (response) {
       utils.writeJson(res, response);
     })
-    .catch(function (response) {
-      utils.writeJson(res, response);
+    .catch(function (error) {
+      utils.writeJson(res, error.message, error.code);
     });
 };
 
@@ -28,8 +28,8 @@ module.exports.bookIdGET = function bookIdGET (req, res, next, id) {
     .then(function (response) {
       utils.writeJson(res, response);
     })
-    .catch(function (response) {
-      utils.writeJson(res, response);
+    .catch(function (error) {
+      utils.writeJson(res, error.message, error.code);
     });
 };
 
@@ -53,8 +53,8 @@ module.exports.bookPOST = function bookPOST (req, res, next, body) {
     });
 };
 
-module.exports.bookSearchPOST = function bookSearchPOST (req, res, next, body) {
-  Book.bookSearchPOST(body, pageNumber, pageSize)
+module.exports.bookSearchPOST = function bookSearchPOST (req, res, next,Author, title, category) {
+  Book.bookSearchPOST(body,Author, title, category)
     .then(function (response) {
       utils.writeJson(res, response);
     })
