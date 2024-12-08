@@ -40,7 +40,8 @@ test("GET /chat/{id} - Should return 400 error for invalid ID format (float)", a
   t.is(error.response.body.message, 'request.params.id should be integer');
 });
 
-/* test("GET /chat/{id} - Should return 404 error for non-existent chat ID", async (t) => {
+/* NOT WORKING ( × [fail]: getChatId › GET /chat/{id} - Should return 404 error for non-existent chat ID)
+test("GET /chat/{id} - Should return 404 error for non-existent chat ID", async (t) => {
   const error = await t.throwsAsync(() => t.context.got("chat/999"));
   t.is(error.response.statusCode, 404);
   t.is(error.response.body, 'Chat not found');
