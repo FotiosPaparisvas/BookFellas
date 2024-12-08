@@ -78,29 +78,57 @@ exports.libraryIdBookGET = function (id) {
 
 
 /**
- * Updates a Library's book list. Use \"add\" or \"remove\" operation to update the list.
+ * Updates a Library's book list. Use "add" or "remove" operation to update the list.
  *
  * body Book 
  * id UUID 
  * returns Book
  **/
-exports.libraryIdBookPUT = function(body,id) {
+exports.libraryIdBookPUT = function(body, id) {
   return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "author" : "author",
-  "isbn" : "isbn",
-  "id" : 0,
-  "publishedDate" : "2000-01-23",
-  "title" : "title"
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(body);
-    } else {
-      resolve();
+    const libraries = {
+      21: [
+        {
+          author: "Author A",
+          isbn: "123456789",
+          id: 1,
+          publishedDate: "2020-01-01",
+          title: "Book A",
+        },
+        {
+          author: "Author B",
+          isbn: "987654321",
+          id: 2,
+          publishedDate: "2021-01-01",
+          title: "Book B",
+        },
+      ],
+    };
+
+    // Check if the library ID exists
+    if (!libraries[id]) {
+      reject({
+        statusCode: 404,
+        message: "Library not found",
+      });
+      return;
     }
+
+    // Check if the required book fields are missing
+    if (!body || !body.title || !body.isbn || !body.author) {
+      reject({
+        statusCode: 400,
+        message: "Missing book data: title, isbn, and author are required",
+      });
+      return;
+    }
+
+    resolve(body); // If no issues, resolve with the book data
   });
-}
+};
+
+
+
 
 
 /**
