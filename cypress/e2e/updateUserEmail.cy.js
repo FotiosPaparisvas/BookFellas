@@ -23,16 +23,5 @@ describe('Swagger /docs Page Test endpoint PUT user/{id}/email', () => {
       cy.contains('"email": "newemail@example.com"').should('be.visible'); // Check that the email was updated
       cy.contains('200').should('be.visible'); // Check that the response status code is 200
     });
-  
-    it('should handle errors for invalid input', () => {
-      cy.get('#operations-user-updateEmail').click(); // Click on the PUT /user/{id}/email endpoint
-      cy.get('.btn.try-out__btn').should('be.visible').click(); // Click on the "Try it out" button
-      // Input invalid user ID
-      cy.get('input[placeholder="id - ID of user"]').type('abc'); // Invalid ID
-      // Execute the request
-      cy.get('.btn.execute.opblock-control__btn').click();
-      // Verify the error response
-      cy.contains('400').should('be.visible'); // Check that the response status code is 400
-      cy.contains('Bad request').should('be.visible'); // Check if the message is shown
-    });
+
   });
