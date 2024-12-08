@@ -1,28 +1,28 @@
-const test = require("ava");
-const got = require("got");
-const app = require("../index.js");
-const http = require("http");
+const test = require('ava');
+const got = require('got');
+const app = require('../index.js');
+const http = require('http');
 
 test.before(async (t) => {
     const server = http.createServer(app);
     await new Promise((resolve) => server.listen(0, resolve));
     const { port } = server.address();
     t.context.server = server;
-    t.context.got = got.extend({ responseType: "json", prefixUrl: `http://localhost:8080`});
-});
-
-test.after.always((t) => {
+    t.context.got = got.extend({ responseType: "json", prefixUrl: `http://localhost:8080` });
+  });
+  
+  test.after.always((t) => {
     t.context.server.close();
-});
+  });
 
 // Test data
 const libraryId = 21; // Example library ID for testing
-const validBookData = { 
-    author: "New Author", 
-    isbn: "1234567890", 
-    id: 5, 
-    publishedDate: "2023-10-10", 
-    title: "New Book" 
+const validBookData = {
+    author: "New Author",
+    isbn: "1234567890",
+    id: 5,
+    publishedDate: "2023-10-10",
+    title: "New Book",
 };
 
 // Test for successful book update in library
@@ -49,25 +49,12 @@ test("PUT /library/{id}/book - Invalid book data", async (t) => {
         "Response message should indicate which fields are invalid");
 });
 
-/* NOT WORKING
 // Test for non-existent library ID
 test("PUT /library/{id}/book - Non-existent library ID", async (t) => {
-    const nonExistentLibraryId = "99999";
+    const nonExistentLibraryId = 99999; // Using a non-existent library ID
     const validBookData = { title: "New Book", isbn: "123456789" };
 
-    // Mocking the response
-    const mockResponse = {
-        statusCode: 404,
-        body: { message: "Library not found" },
-    };
-
-    const gotMock = t.context.got.extend({
-        async put() {
-            return mockResponse;
-        },
-    });
-
-    const response = await gotMock.put(`library/${nonExistentLibraryId}/book`, {
+    const response = await t.context.got.put(`library/${nonExistentLibraryId}/book`, {
         json: validBookData,
         throwHttpErrors: false,
     });
@@ -77,16 +64,16 @@ test("PUT /library/{id}/book - Non-existent library ID", async (t) => {
 });
 
 
-
 // Test for missing book data
 test("PUT /library/{id}/book - Missing book data", async (t) => {
     const response = await t.context.got.put(`library/${libraryId}/book`, {
-        json: {}, // No book data provided
+        json: {}, // Empty body to simulate missing book data
         throwHttpErrors: false,
     });
 
     t.is(response.statusCode, 400, "Response status should be 400 for missing book data");
-    t.is(response.body.message, "Missing book data", "Response message should indicate missing data");
+    t.is(response.body.message, "Missing book data: title, isbn, and author are required", 
+        "Response message should indicate missing data");
 });
 
-*/
+
