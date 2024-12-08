@@ -43,29 +43,38 @@ exports.libraryGET = function(pageNumber,pageSize) {
  * pageSize Integer  (optional)
  * returns List
  **/
-exports.libraryIdBookGET = function(id) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "author" : "author",
-  "isbn" : "isbn",
-  "id" : 0,
-  "publishedDate" : "2000-01-23",
-  "title" : "title"
-}, {
-  "author" : "author",
-  "isbn" : "isbn",
-  "id" : 0,
-  "publishedDate" : "2000-01-23",
-  "title" : "title"
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
+exports.libraryIdBookGET = function (id) {
+  return new Promise(function (resolve, reject) {
+    const libraries = {
+      1: [
+        {
+          author: "Author A",
+          isbn: "123456789",
+          id: 1,
+          publishedDate: "2020-01-01",
+          title: "Book A",
+        },
+        {
+          author: "Author B",
+          isbn: "987654321",
+          id: 2,
+          publishedDate: "2021-01-01",
+          title: "Book B",
+        },
+      ],
+    };
+
+    if (libraries[id]) {
+      resolve(libraries[id]); // Return the books for the library
     } else {
-      resolve();
+      reject({
+        statusCode: 404,
+        message: "Library not found",
+      }); // Return 404 for non-existent libraries
     }
   });
-}
+};
+
 
 
 /**
