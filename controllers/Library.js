@@ -13,15 +13,16 @@ module.exports.libraryGET = function libraryGET (req, res, next, pageNumber, pag
     });
 };
 
-module.exports.libraryIdBookGET = function libraryIdBookGET (req, res, next, id, pageNumber, pageSize) {
+module.exports.libraryIdBookGET = function libraryIdBookGET(req, res, next, id, pageNumber, pageSize) {
   Library.libraryIdBookGET(id, pageNumber, pageSize)
     .then(function (response) {
       utils.writeJson(res, response);
     })
-    .catch(function (response) {
-      utils.writeJson(res, response);
+    .catch(function (error) {
+      res.status(error.statusCode || 500).json({ message: error.message || "Internal Server Error" });
     });
 };
+
 
 module.exports.libraryIdBookPUT = function libraryIdBookPUT (req, res, next, body, id) {
   Library.libraryIdBookPUT(body, id)
