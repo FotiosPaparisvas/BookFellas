@@ -205,7 +205,7 @@ exports.updateEmail = function(body,id) {
     
     const user = Object.values(examples).find(user => user.id === id);
     if (user) {
-      resolve(user);
+      resolve(body);
     } else {
       reject({ code: 404, message: "User not found" });
     }
