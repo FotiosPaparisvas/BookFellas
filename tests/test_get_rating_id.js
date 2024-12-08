@@ -29,12 +29,20 @@ test("GET /rating /{id} Should return rating info and statusCode 200 ", async (t
 });
 
 //Unappy paths
-invalid_id = "Eimai_ena_invalid_id"
-test("GET /rating /{id} Should return 400 because of invalid id ", async (t) => {
-  const { body, statusCode } = await t.context.got(`rating/${invalid_id}`, {
+invalid_id_string = "Eimai_ena_invalid_id"
+test("GET /rating /{id} Should return 400 because of invalid id (string) ", async (t) => {
+  const { body, statusCode } = await t.context.got(`rating/${invalid_id_string}`, {
     throwHttpErrors: false,
   });
 
   t.is(statusCode, 400);
 });
 
+invalid_id_float = 4.22;
+test("GET /rating /{id} Should return 400 because of invalid id (float) ", async (t) => {
+  const { body, statusCode } = await t.context.got(`rating/${invalid_id_float}`, {
+    throwHttpErrors: false,
+  });
+
+  t.is(statusCode, 400);
+});

@@ -12,7 +12,7 @@ test.before(async (t) => {
 });
 
 test.after.always((t) => {
-t.context.server.close();
+  t.context.server.close();
 });
 
 //Happy path
@@ -23,9 +23,18 @@ test("DELETE /rating /{id} Should return rating info and statusCode 200 ", async
 });
 
 //Unappy paths
-invalid_id = "Eimai_ena_invalid_id"
-test("DELETE /rating /{id} Should return 400 because of invalid id ", async (t) => {
-  const { body, statusCode } = await t.context.got(`rating/${invalid_id}`, {
+invalid_id_string = "Eimai_ena_invalid_id"
+test("DELETE /rating /{id} Should return 400 because of invalid id (string) ", async (t) => {
+  const { body, statusCode } = await t.context.got(`rating/${invalid_id_string}`, {
+    throwHttpErrors: false,
+  });
+
+  t.is(statusCode, 400);
+});
+
+invalid_id_float = 88.99 ;
+test("DELETE /rating /{id} Should return 400 because of invalid id (float) ", async (t) => {
+  const { body, statusCode } = await t.context.got(`rating/${invalid_id_float}`, {
     throwHttpErrors: false,
   });
 
