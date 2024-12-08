@@ -40,9 +40,9 @@ test("GET /library/{id}/book - Should return 400 error for invalid library ID fo
   t.is(error.response.body.message, "request.params.id should be integer", "Error message should indicate invalid ID format");
 });
 
-/* NOT WORKING (× [fail]: getChatId › GET /chat/{id} - Should return 404 error for non-existent chat ID)
 test("GET /library/{id}/book - Should return 404 error for non-existent library ID", async (t) => {
   const error = await t.throwsAsync(() => t.context.got("library/9999/book")); // Use an unlikely ID
   t.is(error.response.statusCode, 404, "Response status should be 404");
   t.is(error.response.body.message, "Library not found", "Error message should indicate the library was not found");
 });
+
