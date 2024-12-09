@@ -8,32 +8,32 @@
  * id String ID of the chat
  * returns Chat
  **/
-exports.getChatById = function(id) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "createdAt" : "2000-01-23T04:56:07.000+00:00",
-  "messages" : [ {
-    "id" :1478525896,
-    "sender_id" : 6,
-    "content" : "content",
-    "timestamp" : "2000-01-23T04:56:07.000+00:00"
-  }, {
-    "id" : 1485625896,
-    "sender_id" : 6,
-    "content" : "content",
-    "timestamp" : "2000-01-23T04:56:07.000+00:00"
-  } ],
-  "id" : 486525632586,
-  "participants" : [ 0, 0 ]
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
+exports.getChatById = function (id) {
+  return new Promise(function (resolve, reject) {
+    const chatId = 486525632586; // Example valid ID
+    if (parseInt(id, 10) === chatId) {
+      resolve({
+        id: chatId,
+        createdAt: "2000-01-23T04:56:07.000+00:00",
+        messages: [
+          {
+            id: 1478525896,
+            sender_id: 6,
+            content: "content",
+            timestamp: "2000-01-23T04:56:07.000+00:00",
+          },
+        ],
+        participants: [0, 0],
+      });
     } else {
-      resolve();
+      reject({
+        status: 404,
+        message: "Chat not found",
+      });
     }
   });
-}
+};
+
 
 
 /**

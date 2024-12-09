@@ -3,15 +3,20 @@
 var utils = require('../utils/writer.js');
 var Chat = require('../service/ChatService');
 
-module.exports.getChatById = function getChatById (req, res, next, id) {
+module.exports.getChatById = function getChatById(req, res, next, id) {
   Chat.getChatById(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
-    .catch(function (response) {
-      utils.writeJson(res, response);
+    .catch(function (error) {
+      if (error.status === 404) {
+        res.status(404).json({ message: error.message });
+      } else {
+        res.status(500).json({ message: "Internal Server Error" });
+      }
     });
 };
+
 
 module.exports.getMessagesInChat = function getMessagesInChat (req, res, next, sender_id, chat_id) {
   Chat.getMessagesInChat(sender_id, chat_id)

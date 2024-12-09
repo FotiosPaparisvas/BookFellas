@@ -13,25 +13,31 @@ module.exports.libraryGET = function libraryGET (req, res, next, pageNumber, pag
     });
 };
 
-module.exports.libraryIdBookGET = function libraryIdBookGET (req, res, next, id, pageNumber, pageSize) {
+module.exports.libraryIdBookGET = function libraryIdBookGET(req, res, next, id, pageNumber, pageSize) {
   Library.libraryIdBookGET(id, pageNumber, pageSize)
     .then(function (response) {
       utils.writeJson(res, response);
     })
-    .catch(function (response) {
-      utils.writeJson(res, response);
+    .catch(function (error) {
+      res.status(error.statusCode || 500).json({ message: error.message || "Internal Server Error" });
     });
 };
 
-module.exports.libraryIdBookPUT = function libraryIdBookPUT (req, res, next, body, id) {
+
+
+
+var Library = require('../service/LibraryService');
+
+module.exports.libraryIdBookPUT = function libraryIdBookPUT(req, res, next, body, id) {
   Library.libraryIdBookPUT(body, id)
     .then(function (response) {
-      utils.writeJson(res, response);
+      res.status(200).json(response); // Send a success response with the updated book
     })
-    .catch(function (response) {
-      utils.writeJson(res, response);
+    .catch(function (error) {
+      res.status(error.statusCode || 500).json({ message: error.message || "Internal Server Error" }); // Send the error response
     });
 };
+
 
 module.exports.libraryIdGET = function libraryIdGET (req, res, next, id) {
   Library.libraryIdGET(id)
