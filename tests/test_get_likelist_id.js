@@ -16,27 +16,43 @@ test.after.always((t) => {
 });
 
 //Happy path
-likelistid = 88; 
-test("GET /likelist /{id} Should return likelist info and statusCode 200", async (t) => {
+test("GET /likelist /{userid} Should return likelist info and statusCode 200", async (t) => {
+  likelistid = 88; 
 	const { body, statusCode } = await t.context.got(`likelist/${likelistid}`);
   t.is(statusCode, 200);
+  //////
+  //////
+  //////na valw ta vivlia
+  //////
+  //////
 });
 
 //Unhappy paths
-invalid_id_string = "Eimai_ena_invalid_id"
-test("GET /likelist /{id} Should return statusCode 400 because of invalid id (string) ", async (t) => {
-  const { body, statusCode } = await t.context.got(`likelist/${invalid_id_string}`, {
+
+test("GET /likelist /{userid} Should return statusCode 400 because of invalid id (string) ", async (t) => {
+  invalid_id_string = "Eimai_ena_invalid_id"
+  const error = await t.context.got(`likelist/${invalid_id_string}`, {
     throwHttpErrors: false,
   });
   
-  t.is(statusCode, 400);
+  t.is(error.statusCode, 400);
 });
 
-invalid_id_float = 8.25;
-test("GET /likelist /{id} Should return statusCode 400 because of invalid id (float) ", async (t) => {
-  const { body, statusCode } = await t.context.got(`likelist/${invalid_id_float}`, {
+test("GET /likelist /{userid} Should return statusCode 400 because of invalid id (float) ", async (t) => {
+  invalid_id_float = 8.25;
+  const error = await t.context.got(`likelist/${invalid_id_float}`, {
     throwHttpErrors: false,
   });
   
-  t.is(statusCode, 400);
+  t.is(error.statusCode, 400);
+});
+
+test("GET /likelist /{non_existent_userid} Should return 404 User not found ", async (t) => {
+  non_existent_userid = 111;
+  const error = await t.context.got(`likelist/${non_existent_userid}`, {
+    throwHttpErrors: false,
+  });
+  
+  t.is(error.statusCode, 404);
+  t.is(error.body, 'User not found')
 });

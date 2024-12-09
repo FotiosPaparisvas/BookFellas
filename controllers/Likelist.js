@@ -8,8 +8,8 @@ module.exports.getLikeListByUserId = function getLikeListByUserId (req, res, nex
     .then(function (response) {
       utils.writeJson(res, response);
     })
-    .catch(function (response) {
-      utils.writeJson(res, response);
+    .catch(function (error) {
+      utils.writeJson(res, error.body, error.statusCode);
     });
 };
 

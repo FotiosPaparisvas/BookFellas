@@ -8,8 +8,8 @@ module.exports.deleteRatingById = function deleteRatingById (req, res, next, id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
-    .catch(function (response) {
-      utils.writeJson(res, response);
+    .catch(function (error) {
+      utils.writeJson(res, error.body, error.statusCode);
     });
 };
 
@@ -18,8 +18,8 @@ module.exports.getRatingById = function getRatingById (req, res, next, id) {
     .then(function (response) {
       utils.writeJson(res, response);
     })
-    .catch(function (response) {
-      utils.writeJson(res, response);
+    .catch(function (error) {
+      utils.writeJson(res, error.body, error.statusCode);
     });
 };
 
