@@ -16,15 +16,22 @@ test.after.always((t) => {
 });
 
 //Happy path
-test("GET /likelist /{userid} Should return likelist info and statusCode 200", async (t) => {
-  likelistid = 88; 
-	const { body, statusCode } = await t.context.got(`likelist/${likelistid}`);
+test("GET /likelist /{userId} Should return likelist info, a list of books and statusCode 200", async (t) => {
+  userId = 88; 
+	const { body, statusCode } = await t.context.got(`likelist/${userId}`);
   t.is(statusCode, 200);
-  //////
-  //////
-  //////na valw ta vivlia
-  //////
-  //////
+  t.is(body.id, 456);
+  t.is(body.userId, userId);
+  t.is(body.likedBooks[0].author, "Stephen King");
+  t.is(body.likedBooks[0].isbn, "12345");
+  t.is(body.likedBooks[0].id, 89);
+  t.is(body.likedBooks[0].publishedDate, "2000-01-23");
+  t.is(body.likedBooks[0].title, "Misery");
+  t.is(body.likedBooks[1].author, "Alasdair Gray");
+  t.is(body.likedBooks[1].isbn, "654321");
+  t.is(body.likedBooks[1].id, 99);
+  t.is(body.likedBooks[1].publishedDate, "2099-01-23");
+  t.is(body.likedBooks[1].title, "Poor Things");
 });
 
 //Unhappy paths
