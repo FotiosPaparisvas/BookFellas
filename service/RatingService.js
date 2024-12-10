@@ -10,7 +10,13 @@
  **/
 exports.deleteRatingById = function(id) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    
+    if(id === 555){
+      reject({statusCode: 404, body: 'Rating not found'});
+    } else{
+      resolve();
+    }
+
   });
 }
 
@@ -27,16 +33,16 @@ exports.getRatingById = function(id) {
     var examples = {};
     examples['application/json'] = {
   "createdAt" : "createdAt",
-  "raterID" : 86256325632563,
+  "raterID" : 123456,
   "rating" : 1,
   "comment" : "comment",
-  "id" : 8625632563256334,
-  "userId" : 86256325632563852
+  "id" : id,
+  "userId" : 654321
 };
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
+    if (id === 555) {
+      reject({statusCode: 404, body: 'Rating not found'});
     } else {
-      resolve();
+      resolve(examples[Object.keys(examples)[0]]);
     }
   });
 }

@@ -8,31 +8,33 @@
  * id UUID ID of the user
  * returns LikeList
  **/
-exports.getLikeListByUserId = function(id) {
+exports.getLikeListByUserId = function(userId) {
   return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
   "likedBooks" : [ {
-    "author" : "author",
-    "isbn" : "isbn",
-    "id" : 0,
+    "author" : "Stephen King",
+    "isbn" : "12345",
+    "id" : 89,
     "publishedDate" : "2000-01-23",
-    "title" : "title"
+    "title" : "Misery"
   }, {
-    "author" : "author",
-    "isbn" : "isbn",
-    "id" : 0,
-    "publishedDate" : "2000-01-23",
-    "title" : "title"
+    "author" : "Alasdair Gray",
+    "isbn" : "654321",
+    "id" : 99,
+    "publishedDate" : "2099-01-23",
+    "title" : "Poor Things"
   } ],
-  "id" : 86256325632563,
-  "userId" : 8625632563256342
+  "id" : 456,
+  "userId" : userId
 };
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
+
+    if(userId === 111){
+      reject({statusCode: 404, body: 'User not found'});
+    } else{
+      resolve(examples[Object.keys(examples)]);
     }
+
   });
 }
 
