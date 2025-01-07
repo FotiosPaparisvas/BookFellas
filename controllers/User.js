@@ -4,8 +4,8 @@ var utils = require('../utils/writer.js');
 var User = require('../service/UserService');
 
 // Handles POST request to add a rating for a user by user ID
-module.exports.addUserRating = function addUserRating (_, res, __, body, id) {
-  User.addUserRating(body, id)
+module.exports.addUserRating = function addUserRating (req, res, __, body) {
+  User.addUserRating(body, req.params.id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -59,8 +59,8 @@ module.exports.getUserRatings = function getUserRatings (_, res, __, id) {
 };
 
 // Handles POST request to log in a user
-module.exports.loginUser = function loginUser (_, res, __, username, password) {
-  User.loginUser(username, password)
+module.exports.loginUser = function loginUser (req, res, __) {
+  User.loginUser(req.params.username, req.params.password)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -92,7 +92,9 @@ module.exports.searchUsers = function searchUsers (_, res, __, name) {
 };
 
 // Handles PUT request to update a user's email by user ID
-module.exports.updateEmail = function updateEmail (_, res, __, body, id) {
+module.exports.updateEmail = function updateEmail(req, res, _, body) {
+  const id = req.openapi.pathParams.id; // Extracting the path parameter
+
   User.updateEmail(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -103,8 +105,8 @@ module.exports.updateEmail = function updateEmail (_, res, __, body, id) {
 };
 
 // Handles PUT request to update a user's password by user ID
-module.exports.updatePassword = function updatePassword (_, res, __, body, id) {
-  User.updatePassword(body, id)
+module.exports.updatePassword = function updatePassword (req, res, __, body) {
+  User.updatePassword(body, req.params.id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -114,8 +116,8 @@ module.exports.updatePassword = function updatePassword (_, res, __, body, id) {
 };
 
 // Handles PUT request to update a user by user ID
-module.exports.updateUserById = function updateUserById (_, res, __, body, id) {
-  User.updateUserById(body, id)
+module.exports.updateUserById = function updateUserById (req, res, __, body) {
+  User.updateUserById(body, req.params.id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -125,8 +127,8 @@ module.exports.updateUserById = function updateUserById (_, res, __, body, id) {
 };
 
 // Handles GET request to retrieve a paginated list of users
-module.exports.userGET = function userGET (_, res, __, pageNumber, pageSize) {
-  User.userGET(pageNumber, pageSize)
+module.exports.userGET = function userGET (_, res, __) {
+  User.userGET()
     .then(function (response) {
       utils.writeJson(res, response);
     })
