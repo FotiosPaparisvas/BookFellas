@@ -3,7 +3,7 @@
 var utils = require('../utils/writer.js');
 var Library = require('../service/LibraryService');
 
-module.exports.libraryGET = function libraryGET (req, res, next, pageNumber, pageSize) {
+module.exports.libraryGET = function libraryGET (_, res, __, pageNumber, pageSize) {
   Library.libraryGET(pageNumber, pageSize)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -13,7 +13,7 @@ module.exports.libraryGET = function libraryGET (req, res, next, pageNumber, pag
     });
 };
 
-module.exports.libraryIdBookGET = function libraryIdBookGET(req, res, next, id, pageNumber, pageSize) {
+module.exports.libraryIdBookGET = function libraryIdBookGET(_, res, __, id, pageNumber, pageSize) {
   Library.libraryIdBookGET(id, pageNumber, pageSize)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -25,10 +25,7 @@ module.exports.libraryIdBookGET = function libraryIdBookGET(req, res, next, id, 
 
 
 
-
-var Library = require('../service/LibraryService');
-
-module.exports.libraryIdBookPUT = function libraryIdBookPUT(req, res, next, body, id) {
+module.exports.libraryIdBookPUT = function libraryIdBookPUT(_, res, __, body, id) {
   Library.libraryIdBookPUT(body, id)
     .then(function (response) {
       res.status(200).json(response); // Send a success response with the updated book
@@ -39,7 +36,7 @@ module.exports.libraryIdBookPUT = function libraryIdBookPUT(req, res, next, body
 };
 
 
-module.exports.libraryIdGET = function libraryIdGET (req, res, next, id) {
+module.exports.libraryIdGET = function libraryIdGET (_, res, __, id) {
   Library.libraryIdGET(id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -49,7 +46,7 @@ module.exports.libraryIdGET = function libraryIdGET (req, res, next, id) {
     });
 };
 
-module.exports.libraryIdPUT = function libraryIdPUT (req, res, next, body, id) {
+module.exports.libraryIdPUT = function libraryIdPUT (_, res, __, body, id) {
   Library.libraryIdPUT(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
