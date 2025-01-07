@@ -44,8 +44,8 @@ exports.getChatById = function (id) {
  * chat_id String ID of the chat
  * returns List
  **/
-exports.getMessagesInChat = function(_,_) {
-  return new Promise(function(resolve, _) {
+exports.getMessagesInChat = function(_sender_id,_chat_id) {
+  return new Promise(function(resolve, _reject) {
     var examples = {};
     examples['application/json'] = [ {
   "id" : 1489621456,
@@ -74,8 +74,8 @@ exports.getMessagesInChat = function(_,_) {
  * sender_id UUID ID of the user
  * returns List
  **/
-exports.listChats = function(_) {
-  return new Promise(function(resolve, _) {
+exports.listChats = function(sender_id) {
+  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = [ {
   "createdAt" : "2000-01-23T04:56:07.000+00:00",
@@ -125,8 +125,8 @@ exports.listChats = function(_) {
  * sender_id UUID ID of the user starting the chat
  * returns Chat
  **/
-exports.startChat = function(_,_) {
-  return new Promise(function(resolve, _) {
+exports.startChat = function(body,sender_id) {
+  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
   "createdAt" : "2000-01-23T04:56:07.000+00:00",
@@ -161,8 +161,8 @@ exports.startChat = function(_,_) {
  * id String ID of the chat
  * returns Chat
  **/
-exports.updateChatById = function(_,_) {
-  return new Promise(function(resolve, _) {
+exports.updateChatById = function(body,id) {
+  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
   "createdAt" : "2000-01-23T04:56:07.000+00:00",
@@ -198,8 +198,8 @@ exports.updateChatById = function(_,_) {
  * chat_id String ID of the chat
  * returns Message
  **/
-exports.updateMessageInChat = function(_,_,_) {
-  return new Promise(function(resolve, _) {
+exports.updateMessageInChat = function(body,sender_id,chat_id) {
+  return new Promise(function(resolve, reject) {
     var examples = {};
     examples['application/json'] = {
   "id" : 8525634586325,
