@@ -9,8 +9,8 @@
  * id UUID ID of the user
  * returns Rating
  **/
-exports.addUserRating = function(body,id) {
-  return new Promise(function(resolve, reject) {
+exports.addUserRating = function(_,_) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = {
   "createdAt" : "createdAt",
@@ -36,7 +36,7 @@ exports.addUserRating = function(body,id) {
  * returns User
  **/
 exports.createUser = function(body) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = {
       "userName" : "userName",
@@ -61,7 +61,7 @@ exports.createUser = function(body) {
  * no response value expected for this operation
  **/
 exports.deleteUserById = function(id) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function(resolve, _) {
     resolve();
   });
 }
@@ -74,8 +74,8 @@ exports.deleteUserById = function(id) {
  * id Long ID of the user
  * returns User
  **/
-exports.getUserById = function(id) {
-  return new Promise(function(resolve, reject) {
+exports.getUserById = function(_) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = {
       "id" : "0147525875",
@@ -98,8 +98,8 @@ exports.getUserById = function(id) {
  * id UUID ID of the user
  * returns List
  **/
-exports.getUserRatings = function(id) {
-  return new Promise(function(resolve, reject) {
+exports.getUserRatings = function(_) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = [ {
   "createdAt" : "createdAt",
@@ -133,8 +133,8 @@ exports.getUserRatings = function(id) {
  * password String The password for login in clear text (optional)
  * returns String
  **/
-exports.loginUser = function(username,password) {
-  return new Promise(function(resolve, reject) {
+exports.loginUser = function(_,_) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = "";
     if (Object.keys(examples).length > 0) {
@@ -152,7 +152,7 @@ exports.loginUser = function(username,password) {
  * no response value expected for this operation
  **/
 exports.logoutUser = function() {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function(resolve, _) {
     resolve();
   });
 }
@@ -165,8 +165,8 @@ exports.logoutUser = function() {
  * name String Name of the user to search for (optional)
  * returns List
  **/
-exports.searchUsers = function(name) {
-  return new Promise(function(resolve, reject) {
+exports.searchUsers = function(_) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = [ {
   "id" : "0147525875",
@@ -221,8 +221,8 @@ exports.updateEmail = function(body,id) {
  * id UUID ID of user
  * no response value expected for this operation
  **/
-exports.updatePassword = function(body,id) {
-  return new Promise(function(resolve, reject) {
+exports.updatePassword = function(_,_) {
+  return new Promise(function(resolve, _) {
     resolve();
   });
 }
@@ -236,8 +236,8 @@ exports.updatePassword = function(body,id) {
  * id UUID ID of the user
  * no response value expected for this operation
  **/
-exports.updateUserById = function(body,id) {
-  return new Promise(function(resolve, reject) {
+exports.updateUserById = function(_,_) {
+  return new Promise(function(resolve, _) {
     resolve();
   });
 }
@@ -251,7 +251,7 @@ exports.updateUserById = function(body,id) {
  * returns User
  **/
 exports.userGET = function() {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = [{
   "id" : "0147525875",

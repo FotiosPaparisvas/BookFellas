@@ -8,8 +8,8 @@
  * pageSize Integer  (optional)
  * returns List
  **/
-exports.libraryGET = function(pageNumber,pageSize) {
-  return new Promise(function(resolve, reject) {
+exports.libraryGET = function(_,_) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = [ {
   "established" : "2000-01-23",
@@ -137,8 +137,8 @@ exports.libraryIdBookPUT = function(body, id) {
  * id UUID 
  * returns Library
  **/
-exports.libraryIdGET = function(id) {
-  return new Promise(function(resolve, reject) {
+exports.libraryIdGET = function(_) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = {
   "established" : "2000-01-23",
@@ -165,7 +165,7 @@ exports.libraryIdGET = function(id) {
  * returns Library
  **/
 exports.libraryIdPUT = function(body,id) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = {
   "established" : "2000-01-23",
