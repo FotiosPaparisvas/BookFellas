@@ -54,7 +54,7 @@ module.exports.bookPOST = function bookPOST (_, res, __, body) {
 };
 
 module.exports.bookSearchPOST = function bookSearchPOST (_, res, __,   Author, title, category) {
-  Book.bookSearchPOST(body,Author, title, category)
+  Book.bookSearchPOST(body, Author, title, category)
     .then(function (response) {
       utils.writeJson(res, response);
     })
