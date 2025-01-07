@@ -3,6 +3,7 @@ const got = require('got');
 const app = require('../index.js');
 const http = require('http');
 
+// Get the server up and running
 test.before(async (t) => {
   const server = http.createServer(app);
   await new Promise((resolve) => server.listen(0, resolve));
@@ -11,6 +12,7 @@ test.before(async (t) => {
   t.context.got = got.extend({ responseType: "json", prefixUrl: `http://localhost:8080` });
 });
 
+// Close the server after the tests
 test.after.always((t) => {
   t.context.server.close();
 });

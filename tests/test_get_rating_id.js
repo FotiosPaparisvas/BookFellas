@@ -3,6 +3,7 @@ const got = require('got');
 const app = require('../index.js');
 const http = require('http');
 
+// Get the server up and running
 test.before(async (t) => {
     const server = http.createServer(app);
     await new Promise((resolve) => server.listen(0, resolve));
@@ -11,6 +12,7 @@ test.before(async (t) => {
     t.context.got = got.extend({ responseType: "json", prefixUrl: `http://localhost:8080` });
 });
 
+// Close the server after the tests
 test.after.always((t) => {
   t.context.server.close();
 });
@@ -19,6 +21,7 @@ test.after.always((t) => {
 test("GET /rating /{id} Should return rating info and statusCode 200 ", async (t) => {
   ratingid = 777;
   const { body, statusCode } = await t.context.got(`rating/${ratingid}`);
+  //Check all the parameters
   t.is(statusCode, 200);
   t.is(body.id, ratingid); // Ensure the returned id matches the requested id
   t.is(body.createdAt, "createdAt");

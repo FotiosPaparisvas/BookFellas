@@ -1,5 +1,5 @@
 'use strict';
-
+// Add the necessary imports 
 var utils = require('../utils/writer.js');
 var Chat = require('../service/ChatService');
 
@@ -10,6 +10,7 @@ module.exports.getChatById = function getChatById(_, res, __, id) {
       utils.writeJson(res, response);
     })
     .catch(function (error) {
+    // Return error codes
       if (error.status === 404) {
         res.status(404).json({ message: error.message });
       } else {
