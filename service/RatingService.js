@@ -56,8 +56,8 @@ exports.getRatingById = function(id) {
  * id UUID ID of the rating
  * returns Rating
  **/
-exports.updateRatingById = function(body,id) {
-  return new Promise(function(resolve, reject) {
+exports.updateRatingById = function(_,__) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = {
   "createdAt" : "createdAt",
