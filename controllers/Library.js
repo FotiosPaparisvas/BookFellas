@@ -26,7 +26,7 @@ module.exports.libraryIdBookGET = function libraryIdBookGET(_, res, __, id) {
 };
 
 // Handles PUT request to update a book in a library by library ID
-module.exports.libraryIdBookPUT = function libraryIdBookPUT(req, res, __, body, id) {
+module.exports.libraryIdBookPUT = function libraryIdBookPUT(req, res, __, body) {
   Library.libraryIdBookPUT(body, req.id)
     .then(function (response) {
       res.status(200).json(response); // Send a success response with the updated book
