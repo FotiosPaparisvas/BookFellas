@@ -3,7 +3,7 @@
 var utils = require('../utils/writer.js');
 var User = require('../service/UserService');
 
-module.exports.addUserRating = function addUserRating (_, res, body, id) {
+module.exports.addUserRating = function addUserRating (_, res, __, body, id) {
   User.addUserRating(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -53,7 +53,7 @@ module.exports.getUserRatings = function getUserRatings (_, res, __, id) {
     });
 };
 
-module.exports.loginUser = function loginUser (_, res, username, password) {
+module.exports.loginUser = function loginUser (_, res, __, username, password) {
   User.loginUser(username, password)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -83,7 +83,7 @@ module.exports.searchUsers = function searchUsers (_, res, __, name) {
     });
 };
 
-module.exports.updateEmail = function updateEmail (_, res, body, id) {
+module.exports.updateEmail = function updateEmail (_, res, __, body, id) {
   User.updateEmail(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -93,7 +93,7 @@ module.exports.updateEmail = function updateEmail (_, res, body, id) {
     });
 };
 
-module.exports.updatePassword = function updatePassword (_, res, body, id) {
+module.exports.updatePassword = function updatePassword (_, res, __, body, id) {
   User.updatePassword(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -103,7 +103,7 @@ module.exports.updatePassword = function updatePassword (_, res, body, id) {
     });
 };
 
-module.exports.updateUserById = function updateUserById (_, res, body, id) {
+module.exports.updateUserById = function updateUserById (_, res, __, body, id) {
   User.updateUserById(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -113,7 +113,7 @@ module.exports.updateUserById = function updateUserById (_, res, body, id) {
     });
 };
 
-module.exports.userGET = function userGET (_, res, pageNumber, pageSize) {
+module.exports.userGET = function userGET (_, res, __, pageNumber, pageSize) {
   User.userGET(pageNumber, pageSize)
     .then(function (response) {
       utils.writeJson(res, response);
