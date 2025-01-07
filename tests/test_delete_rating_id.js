@@ -16,6 +16,7 @@ test.after.always((t) => {
 });
 
 // Happy path: Test DELETE /rating/{id} should return rating info and statusCode 200
+//Define a rating id to delete
 ratingid = 333;
 test("DELETE /rating /{id} Should return rating info and statusCode 200 ", async (t) => {
   const { body, statusCode } = await t.context.got(`rating/${ratingid}`);
