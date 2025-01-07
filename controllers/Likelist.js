@@ -3,7 +3,7 @@
 var utils = require('../utils/writer.js');
 var Likelist = require('../service/LikelistService');
 
-module.exports.getLikeListByUserId = function getLikeListByUserId (req, res, next, id) {
+module.exports.getLikeListByUserId = function getLikeListByUserId (_, res, __, id) {
   Likelist.getLikeListByUserId(id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -13,7 +13,7 @@ module.exports.getLikeListByUserId = function getLikeListByUserId (req, res, nex
     });
 };
 
-module.exports.updateLikeListByUserId = function updateLikeListByUserId (req, res, next, body, id) {
+module.exports.updateLikeListByUserId = function updateLikeListByUserId (_, res, __, body, id) {
   Likelist.updateLikeListByUserId(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
