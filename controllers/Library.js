@@ -15,8 +15,8 @@ module.exports.libraryGET = function libraryGET (req, res, __) {
 };
 
 // Handles GET request to retrieve a paginated list of books in a library by library ID
-module.exports.libraryIdBookGET = function libraryIdBookGET(_, res, __, id, pageNumber, pageSize) {
-  Library.libraryIdBookGET(id, pageNumber, pageSize)
+module.exports.libraryIdBookGET = function libraryIdBookGET(_, res, __, id) {
+  Library.libraryIdBookGET(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -26,8 +26,8 @@ module.exports.libraryIdBookGET = function libraryIdBookGET(_, res, __, id, page
 };
 
 // Handles PUT request to update a book in a library by library ID
-module.exports.libraryIdBookPUT = function libraryIdBookPUT(_, res, __, body, id) {
-  Library.libraryIdBookPUT(body, id)
+module.exports.libraryIdBookPUT = function libraryIdBookPUT(req, res, __, body, id) {
+  Library.libraryIdBookPUT(body, req.id)
     .then(function (response) {
       res.status(200).json(response); // Send a success response with the updated book
     })
@@ -48,8 +48,8 @@ module.exports.libraryIdGET = function libraryIdGET (_, res, __, id) {
 };
 
 // Handles PUT request to update a library by ID
-module.exports.libraryIdPUT = function libraryIdPUT (_, res, __, body, id) {
-  Library.libraryIdPUT(body, id)
+module.exports.libraryIdPUT = function libraryIdPUT (req, res, __, body) {
+  Library.libraryIdPUT(body, req.id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
