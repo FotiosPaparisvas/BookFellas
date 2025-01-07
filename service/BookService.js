@@ -106,7 +106,7 @@ exports.bookIdGET = function(id) {
  * id UUID 
  * returns Book
  **/
-exports.bookIdPUT = function(_,__) {
+exports.bookIdPUT = function(_) {
   return new Promise(function(resolve, ___) {
     var examples = {};
     examples['application/json'] = {
@@ -159,7 +159,7 @@ exports.bookPOST = function(body) {
  * category string (optional)
  * no response value expected for this operation
  **/
-exports.bookSearchPOST = function(_, __, ___) {
+exports.bookSearchPOST = function(_) {
   return new Promise(function(resolve, _____) {
     resolve();
   });

@@ -33,8 +33,8 @@ module.exports.bookIdGET = function bookIdGET (_, res, __, id) {
     });
 };
 
-module.exports.bookIdPUT = function bookIdPUT (_, res, __, body, id) {
-  Book.bookIdPUT(body, id)
+module.exports.bookIdPUT = function bookIdPUT (_, res, __, id) {
+  Book.bookIdPUT(id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -53,8 +53,8 @@ module.exports.bookPOST = function bookPOST (_, res, __, body) {
     });
 };
 
-module.exports.bookSearchPOST = function bookSearchPOST (_, res, __, Author, title, category) {
-  Book.bookSearchPOST(Author, title, category)
+module.exports.bookSearchPOST = function bookSearchPOST (_, res, __, title) {
+  Book.bookSearchPOST(title)
     .then(function (response) {
       utils.writeJson(res, response);
     })
