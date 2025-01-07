@@ -3,7 +3,7 @@
 var utils = require('../utils/writer.js');
 var User = require('../service/UserService');
 
-module.exports.addUserRating = function addUserRating (req, res, next, body, id) {
+module.exports.addUserRating = function addUserRating (_, res, __, body, id) {
   User.addUserRating(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -13,7 +13,7 @@ module.exports.addUserRating = function addUserRating (req, res, next, body, id)
     });
 };
 
-module.exports.createUser = function createUser (req, res, next, body) {
+module.exports.createUser = function createUser (_, res, __, body) {
   User.createUser(body)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -23,7 +23,7 @@ module.exports.createUser = function createUser (req, res, next, body) {
     });
 };
 
-module.exports.deleteUserById = function deleteUserById (req, res, next, id) {
+module.exports.deleteUserById = function deleteUserById (_, res, __, id) {
   User.deleteUserById(id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -33,7 +33,7 @@ module.exports.deleteUserById = function deleteUserById (req, res, next, id) {
     });
 };
 
-module.exports.getUserById = function getUserById (req, res, next, id) {
+module.exports.getUserById = function getUserById (_, res, __, id) {
   User.getUserById(id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -43,7 +43,7 @@ module.exports.getUserById = function getUserById (req, res, next, id) {
     });
 };
 
-module.exports.getUserRatings = function getUserRatings (req, res, next, id) {
+module.exports.getUserRatings = function getUserRatings (_, res, __, id) {
   User.getUserRatings(id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -53,7 +53,7 @@ module.exports.getUserRatings = function getUserRatings (req, res, next, id) {
     });
 };
 
-module.exports.loginUser = function loginUser (req, res, next, username, password) {
+module.exports.loginUser = function loginUser (_, res, __, username, password) {
   User.loginUser(username, password)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -63,7 +63,7 @@ module.exports.loginUser = function loginUser (req, res, next, username, passwor
     });
 };
 
-module.exports.logoutUser = function logoutUser (req, res, next) {
+module.exports.logoutUser = function logoutUser (_, res, __) {
   User.logoutUser()
     .then(function (response) {
       utils.writeJson(res, response);
@@ -73,7 +73,7 @@ module.exports.logoutUser = function logoutUser (req, res, next) {
     });
 };
 
-module.exports.searchUsers = function searchUsers (req, res, next, name) {
+module.exports.searchUsers = function searchUsers (_, res, __, name) {
   User.searchUsers(name)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -83,7 +83,7 @@ module.exports.searchUsers = function searchUsers (req, res, next, name) {
     });
 };
 
-module.exports.updateEmail = function updateEmail (req, res, next, body, id) {
+module.exports.updateEmail = function updateEmail (_, res, __, body, id) {
   User.updateEmail(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -93,7 +93,7 @@ module.exports.updateEmail = function updateEmail (req, res, next, body, id) {
     });
 };
 
-module.exports.updatePassword = function updatePassword (req, res, next, body, id) {
+module.exports.updatePassword = function updatePassword (_, res, __, body, id) {
   User.updatePassword(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -103,7 +103,7 @@ module.exports.updatePassword = function updatePassword (req, res, next, body, i
     });
 };
 
-module.exports.updateUserById = function updateUserById (req, res, next, body, id) {
+module.exports.updateUserById = function updateUserById (_, res, __, body, id) {
   User.updateUserById(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -113,7 +113,7 @@ module.exports.updateUserById = function updateUserById (req, res, next, body, i
     });
 };
 
-module.exports.userGET = function userGET (req, res, next, pageNumber, pageSize) {
+module.exports.userGET = function userGET (_, res, __, pageNumber, pageSize) {
   User.userGET(pageNumber, pageSize)
     .then(function (response) {
       utils.writeJson(res, response);
