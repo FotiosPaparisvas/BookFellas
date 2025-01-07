@@ -3,17 +3,19 @@ const got = require('got');
 const app = require('../index.js');
 const http = require('http');
 
+// Setup the server before tests
 test.before(async (t) => {
     const server = http.createServer(app);
     await new Promise((resolve) => server.listen(0, resolve));
     const { port } = server.address();
     t.context.server = server;
     t.context.got = got.extend({ responseType: "json", prefixUrl: `http://localhost:8080` });
-  });
-  
-  test.after.always((t) => {
+});
+
+// Close the server after tests
+test.after.always((t) => {
     t.context.server.close();
-  });
+});
 
 // Test data
 const libraryId = 21; // Example library ID for testing
@@ -63,7 +65,6 @@ test("PUT /library/{id}/book - Non-existent library ID", async (t) => {
     t.is(response.body.message, "Library not found", "Response message should indicate library not found");
 });
 
-
 // Test for missing book data
 test("PUT /library/{id}/book - Missing book data", async (t) => {
     const response = await t.context.got.put(`library/${libraryId}/book`, {
@@ -75,5 +76,3 @@ test("PUT /library/{id}/book - Missing book data", async (t) => {
     t.is(response.body.message, "Library not found", 
         "Response message should indicate missing data");
 });
-
-
