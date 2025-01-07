@@ -3,7 +3,7 @@
 var utils = require('../utils/writer.js');
 var Book = require('../service/BookService');
 
-module.exports.bookGET = function bookGET (_, res, _2) {
+module.exports.bookGET = function bookGET (_, res, __) {
   Book.bookGET()
     .then(function (response) {
       utils.writeJson(res, response);
@@ -13,7 +13,7 @@ module.exports.bookGET = function bookGET (_, res, _2) {
     });
 };
 
-module.exports.bookIdDELETE = function bookIdDELETE (_, res, _2, id) {
+module.exports.bookIdDELETE = function bookIdDELETE (_, res, __, id) {
   Book.bookIdDELETE(id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -23,7 +23,7 @@ module.exports.bookIdDELETE = function bookIdDELETE (_, res, _2, id) {
     });
 };
 
-module.exports.bookIdGET = function bookIdGET (_, res, _2, id) {
+module.exports.bookIdGET = function bookIdGET (_, res, __, id) {
   Book.bookIdGET(id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -33,7 +33,7 @@ module.exports.bookIdGET = function bookIdGET (_, res, _2, id) {
     });
 };
 
-module.exports.bookIdPUT = function bookIdPUT (_, res, _2, body, id) {
+module.exports.bookIdPUT = function bookIdPUT (_, res, __, body, id) {
   Book.bookIdPUT(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -43,7 +43,7 @@ module.exports.bookIdPUT = function bookIdPUT (_, res, _2, body, id) {
     });
 };
 
-module.exports.bookPOST = function bookPOST (_, res, _2, body) {
+module.exports.bookPOST = function bookPOST (_, res, __, body) {
   Book.bookPOST(body)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -53,7 +53,7 @@ module.exports.bookPOST = function bookPOST (_, res, _2, body) {
     });
 };
 
-module.exports.bookSearchPOST = function bookSearchPOST (_, res, _2,   Author, title, category) {
+module.exports.bookSearchPOST = function bookSearchPOST (_, res, __,   Author, title, category) {
   Book.bookSearchPOST(body,Author, title, category)
     .then(function (response) {
       utils.writeJson(res, response);
