@@ -159,7 +159,7 @@ exports.bookPOST = function(body) {
  * category string (optional)
  * no response value expected for this operation
  **/
-exports.bookSearchPOST = function(_, __, ___, ____) {
+exports.bookSearchPOST = function(_, __, ___) {
   return new Promise(function(resolve, _____) {
     resolve();
   });
