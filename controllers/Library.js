@@ -4,8 +4,8 @@ var utils = require('../utils/writer.js');
 var Library = require('../service/LibraryService');
 
 // Handles GET request to retrieve a paginated list of libraries
-module.exports.libraryGET = function libraryGET (_, res, __, pageNumber, pageSize) {
-  Library.libraryGET(pageNumber, pageSize)
+module.exports.libraryGET = function libraryGET (req, res, __) {
+  Library.libraryGET()
     .then(function (response) {
       utils.writeJson(res, response);
     })
