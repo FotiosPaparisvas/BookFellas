@@ -164,7 +164,7 @@ exports.libraryIdGET = function(_) {
  * id UUID The ID of the library to update
  * returns Library
  **/
-exports.libraryIdPUT = function(body,id) {
+exports.libraryIdPUT = function(body,_) {
   return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = {

@@ -60,7 +60,7 @@ exports.createUser = function(body) {
  * id UUID ID of the user
  * no response value expected for this operation
  **/
-exports.deleteUserById = function(id) {
+exports.deleteUserById = function(_) {
   return new Promise(function(resolve, _) {
     resolve();
   });
