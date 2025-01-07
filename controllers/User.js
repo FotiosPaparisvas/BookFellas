@@ -5,7 +5,7 @@ var User = require('../service/UserService');
 
 // Handles POST request to add a rating for a user by user ID
 module.exports.addUserRating = function addUserRating (req, res, __, body) {
-  User.addUserRating(body, req.params.id)
+  User.addUserRating(body, req.openapi.pathParams.id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -60,7 +60,7 @@ module.exports.getUserRatings = function getUserRatings (_, res, __, id) {
 
 // Handles POST request to log in a user
 module.exports.loginUser = function loginUser (req, res, __) {
-  User.loginUser(req.params.username, req.params.password)
+  User.loginUser(req.openapi.pathParams.username, req.openapi.pathParams.password)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -106,7 +106,7 @@ module.exports.updateEmail = function updateEmail(req, res, _, body) {
 
 // Handles PUT request to update a user's password by user ID
 module.exports.updatePassword = function updatePassword (req, res, __, body) {
-  User.updatePassword(body, req.params.id)
+  User.updatePassword(body, req.openapi.pathParams.id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -117,7 +117,7 @@ module.exports.updatePassword = function updatePassword (req, res, __, body) {
 
 // Handles PUT request to update a user by user ID
 module.exports.updateUserById = function updateUserById (req, res, __, body) {
-  User.updateUserById(body, req.params.id)
+  User.updateUserById(body, req.openapi.pathParams.id)
     .then(function (response) {
       utils.writeJson(res, response);
     })

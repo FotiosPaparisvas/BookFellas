@@ -16,7 +16,7 @@ module.exports.getLikeListByUserId = function getLikeListByUserId (_, res, __, i
 
 // Handles PUT request to update a like list by user ID
 module.exports.updateLikeListByUserId = function updateLikeListByUserId (req, res, __, body) {
-  Likelist.updateLikeListByUserId(body, req.params.id)
+  Likelist.updateLikeListByUserId(body, req.openapi.pathParams.id)
     .then(function (response) {
       utils.writeJson(res, response);
     })

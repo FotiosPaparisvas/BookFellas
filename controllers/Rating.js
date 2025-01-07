@@ -27,7 +27,7 @@ module.exports.getRatingById = function getRatingById (_, res, __, id) {
 
 // Handles PUT request to update a rating by ID
 module.exports.updateRatingById = function updateRatingById (req, res, __, body) {
-  Rating.updateRatingById(body, req.params.id)
+  Rating.updateRatingById(body, req.openapi.pathParams.id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
