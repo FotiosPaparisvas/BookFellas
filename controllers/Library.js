@@ -3,6 +3,7 @@
 var utils = require('../utils/writer.js');
 var Library = require('../service/LibraryService');
 
+// Handles GET request to retrieve a paginated list of libraries
 module.exports.libraryGET = function libraryGET (_, res, __, pageNumber, pageSize) {
   Library.libraryGET(pageNumber, pageSize)
     .then(function (response) {
@@ -13,6 +14,7 @@ module.exports.libraryGET = function libraryGET (_, res, __, pageNumber, pageSiz
     });
 };
 
+// Handles GET request to retrieve a paginated list of books in a library by library ID
 module.exports.libraryIdBookGET = function libraryIdBookGET(_, res, __, id, pageNumber, pageSize) {
   Library.libraryIdBookGET(id, pageNumber, pageSize)
     .then(function (response) {
@@ -23,8 +25,7 @@ module.exports.libraryIdBookGET = function libraryIdBookGET(_, res, __, id, page
     });
 };
 
-
-
+// Handles PUT request to update a book in a library by library ID
 module.exports.libraryIdBookPUT = function libraryIdBookPUT(_, res, __, body, id) {
   Library.libraryIdBookPUT(body, id)
     .then(function (response) {
@@ -35,7 +36,7 @@ module.exports.libraryIdBookPUT = function libraryIdBookPUT(_, res, __, body, id
     });
 };
 
-
+// Handles GET request to retrieve a library by ID
 module.exports.libraryIdGET = function libraryIdGET (_, res, __, id) {
   Library.libraryIdGET(id)
     .then(function (response) {
@@ -46,6 +47,7 @@ module.exports.libraryIdGET = function libraryIdGET (_, res, __, id) {
     });
 };
 
+// Handles PUT request to update a library by ID
 module.exports.libraryIdPUT = function libraryIdPUT (_, res, __, body, id) {
   Library.libraryIdPUT(body, id)
     .then(function (response) {
