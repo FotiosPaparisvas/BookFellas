@@ -8,7 +8,7 @@
  * returns List
  **/
 exports.bookGET = function() {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = [ {
   "author" : "author",
@@ -106,8 +106,8 @@ exports.bookIdGET = function(id) {
  * id UUID 
  * returns Book
  **/
-exports.bookIdPUT = function(body,id) {
-  return new Promise(function(resolve, reject) {
+exports.bookIdPUT = function(_,__) {
+  return new Promise(function(resolve, ___) {
     var examples = {};
     examples['application/json'] = {
   "author" : "author",
@@ -132,7 +132,7 @@ exports.bookIdPUT = function(body,id) {
  * returns Book
  **/
 exports.bookPOST = function(body) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = {
   "author" : "author",
@@ -159,8 +159,8 @@ exports.bookPOST = function(body) {
  * category string (optional)
  * no response value expected for this operation
  **/
-exports.bookSearchPOST = function(body, Author, title, category) {
-  return new Promise(function(resolve, reject) {
+exports.bookSearchPOST = function(_, __, ___, ____) {
+  return new Promise(function(resolve, _____) {
     resolve();
   });
 }
