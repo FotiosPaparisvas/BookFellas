@@ -72,7 +72,7 @@ test("PUT /library/{id}/book - Missing book data", async (t) => {
         throwHttpErrors: false,
     });
 
-    t.is(response.statusCode, 404, "Response status should be 400 for missing book data");
-    t.is(response.body.message, "Library not found", 
+    t.is(response.statusCode, 400, "Response status should be 400 for missing book data");
+    t.is(response.body.message, "Missing book data: title, isbn, and author are required", 
         "Response message should indicate missing data");
 });
