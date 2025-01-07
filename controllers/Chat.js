@@ -20,8 +20,8 @@ module.exports.getChatById = function getChatById(_, res, __, id) {
 };
 
 // Handles GET request to retrieve messages in a chat by sender ID and chat ID
-module.exports.getMessagesInChat = function getMessagesInChat (_, res, __, sender_id, chat_id) {
-  Chat.getMessagesInChat(sender_id, chat_id)
+module.exports.getMessagesInChat = function getMessagesInChat (req, res, __) {
+  Chat.getMessagesInChat(req.params.sender_id, req.params.chat_id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -42,8 +42,8 @@ module.exports.listChats = function listChats (_, res, __, sender_id) {
 };
 
 // Handles POST request to start a new chat
-module.exports.startChat = function startChat (_, res, __, body, sender_id) {
-  Chat.startChat(body, sender_id)
+module.exports.startChat = function startChat (req, res, __, body) {
+  Chat.startChat(body, req.params.sender_id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -53,8 +53,8 @@ module.exports.startChat = function startChat (_, res, __, body, sender_id) {
 };
 
 // Handles PUT request to update a chat by ID
-module.exports.updateChatById = function updateChatById (_, res, __, body, id) {
-  Chat.updateChatById(body, id)
+module.exports.updateChatById = function updateChatById (req, res, __, body) {
+  Chat.updateChatById(body, req.params.id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -64,8 +64,8 @@ module.exports.updateChatById = function updateChatById (_, res, __, body, id) {
 };
 
 // Handles PUT request to update a message in a chat by sender ID and chat ID
-module.exports.updateMessageInChat = function updateMessageInChat (_, res, __, body, sender_id, chat_id) {
-  Chat.updateMessageInChat(body, sender_id, chat_id)
+module.exports.updateMessageInChat = function updateMessageInChat (req, res, __, body) {
+  Chat.updateMessageInChat(body, req.params.sender_id, req.params.chat_id)
     .then(function (response) {
       utils.writeJson(res, response);
     })
