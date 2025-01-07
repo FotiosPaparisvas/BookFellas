@@ -11,42 +11,42 @@ exports.respondWithCode = function(code, payload) {
 
 // Function to write a JSON response
 var writeJson = exports.writeJson = function(response, arg1, arg2) {
-  var code;
-  var payload;
-
-  // If arg1 is a ResponsePayload object, extract its code and payload
-  if(arg1 && arg1 instanceof ResponsePayload) {
+  if (arg1 && arg1 instanceof ResponsePayload) {
     writeJson(response, arg1.payload, arg1.code);
     return;
   }
 
-  // Determine the response code
-  if(arg2 && Number.isInteger(arg2)) {
-    code = arg2;
-  } else {
-    if(arg1 && Number.isInteger(arg1)) {
-      code = arg1;
-    }
-  }
+  var code = determineCode(arg1, arg2);
+  var payload = determinePayload(arg1, code);
 
-  // Determine the payload
-  if(code && arg1) {
-    payload = arg1;
-  } else if(arg1) {
-    payload = arg1;
-  }
+  writeResponse(response, code, payload);
+}
 
-  // Default response code to 200 if not provided
-  if(!code) {
-    code = 200;
+// Helper function to determine the response code
+function determineCode(arg1, arg2) {
+  if (arg2 && Number.isInteger(arg2)) {
+    return arg2;
+  } else if (arg1 && Number.isInteger(arg1)) {
+    return arg1;
   }
+  return 200; // Default response code
+}
 
-  // Convert payload to JSON string if it is an object
-  if(typeof payload === 'object') {
+// Helper function to determine the payload
+function determinePayload(arg1, code) {
+  if (code && arg1) {
+    return arg1;
+  } else if (arg1) {
+    return arg1;
+  }
+  return null;
+}
+
+// Helper function to write the response
+function writeResponse(response, code, payload) {
+  if (typeof payload === 'object') {
     payload = JSON.stringify(payload, null, 2);
   }
-
-  // Write the response with the determined code and payload
   response.writeHead(code, {'Content-Type': 'application/json'});
   response.end(payload);
 }
