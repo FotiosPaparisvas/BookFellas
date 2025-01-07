@@ -8,7 +8,7 @@
  * pageSize Integer  (optional)
  * returns List
  **/
-exports.libraryGET = function(_,__) {
+exports.libraryGET = function() {
   return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = [ {
