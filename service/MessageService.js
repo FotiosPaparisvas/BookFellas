@@ -10,7 +10,7 @@
  * chat_id UUID ID of the chat
  * returns Message
  **/
-exports.sendMessage = function(_,_,_) {
+exports.sendMessage = function(_,__,___) {
   return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = {

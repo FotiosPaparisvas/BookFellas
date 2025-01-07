@@ -9,7 +9,7 @@
  * id UUID ID of the user
  * returns Rating
  **/
-exports.addUserRating = function(_,_) {
+exports.addUserRating = function(_,__) {
   return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = {
@@ -133,7 +133,7 @@ exports.getUserRatings = function(_) {
  * password String The password for login in clear text (optional)
  * returns String
  **/
-exports.loginUser = function(_,_) {
+exports.loginUser = function(_,__) {
   return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = "";
@@ -221,7 +221,7 @@ exports.updateEmail = function(body,id) {
  * id UUID ID of user
  * no response value expected for this operation
  **/
-exports.updatePassword = function(_,_) {
+exports.updatePassword = function(_,__) {
   return new Promise(function(resolve, _) {
     resolve();
   });
@@ -236,7 +236,7 @@ exports.updatePassword = function(_,_) {
  * id UUID ID of the user
  * no response value expected for this operation
  **/
-exports.updateUserById = function(_,_) {
+exports.updateUserById = function(_,__) {
   return new Promise(function(resolve, _) {
     resolve();
   });
