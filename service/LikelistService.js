@@ -47,8 +47,8 @@ exports.getLikeListByUserId = function(userId) {
  * id UUID ID of the user
  * returns LikeList
  **/
-exports.updateLikeListByUserId = function(body,id) {
-  return new Promise(function(resolve, reject) {
+exports.updateLikeListByUserId = function(_,__) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = {
   "likedBooks" : [ {

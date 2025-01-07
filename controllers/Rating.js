@@ -3,7 +3,7 @@
 var utils = require('../utils/writer.js');
 var Rating = require('../service/RatingService');
 
-module.exports.deleteRatingById = function deleteRatingById (req, res, next, id) {
+module.exports.deleteRatingById = function deleteRatingById (_, res, __, id) {
   Rating.deleteRatingById(id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -13,7 +13,7 @@ module.exports.deleteRatingById = function deleteRatingById (req, res, next, id)
     });
 };
 
-module.exports.getRatingById = function getRatingById (req, res, next, id) {
+module.exports.getRatingById = function getRatingById (_, res, __, id) {
   Rating.getRatingById(id)
     .then(function (response) {
       utils.writeJson(res, response);
@@ -23,7 +23,7 @@ module.exports.getRatingById = function getRatingById (req, res, next, id) {
     });
 };
 
-module.exports.updateRatingById = function updateRatingById (req, res, next, body, id) {
+module.exports.updateRatingById = function updateRatingById (_, res, __, body, id) {
   Rating.updateRatingById(body, id)
     .then(function (response) {
       utils.writeJson(res, response);
