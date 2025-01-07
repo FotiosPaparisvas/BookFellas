@@ -44,8 +44,8 @@ exports.getChatById = function (id) {
  * chat_id String ID of the chat
  * returns List
  **/
-exports.getMessagesInChat = function(sender_id,chat_id) {
-  return new Promise(function(resolve, reject) {
+exports.getMessagesInChat = function(_,__) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = [ {
   "id" : 1489621456,
@@ -74,8 +74,8 @@ exports.getMessagesInChat = function(sender_id,chat_id) {
  * sender_id UUID ID of the user
  * returns List
  **/
-exports.listChats = function(sender_id) {
-  return new Promise(function(resolve, reject) {
+exports.listChats = function(_) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = [ {
   "createdAt" : "2000-01-23T04:56:07.000+00:00",
@@ -125,8 +125,8 @@ exports.listChats = function(sender_id) {
  * sender_id UUID ID of the user starting the chat
  * returns Chat
  **/
-exports.startChat = function(body,sender_id) {
-  return new Promise(function(resolve, reject) {
+exports.startChat = function(_,__) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = {
   "createdAt" : "2000-01-23T04:56:07.000+00:00",
@@ -161,8 +161,8 @@ exports.startChat = function(body,sender_id) {
  * id String ID of the chat
  * returns Chat
  **/
-exports.updateChatById = function(body,id) {
-  return new Promise(function(resolve, reject) {
+exports.updateChatById = function(_,__) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = {
   "createdAt" : "2000-01-23T04:56:07.000+00:00",
@@ -198,8 +198,8 @@ exports.updateChatById = function(body,id) {
  * chat_id String ID of the chat
  * returns Message
  **/
-exports.updateMessageInChat = function(body,sender_id,chat_id) {
-  return new Promise(function(resolve, reject) {
+exports.updateMessageInChat = function(_,__,___) {
+  return new Promise(function(resolve, _) {
     var examples = {};
     examples['application/json'] = {
   "id" : 8525634586325,
